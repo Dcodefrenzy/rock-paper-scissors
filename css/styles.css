@@ -29,6 +29,12 @@
 .image-responsive{
     width: 100%;
 }
+.image-responsive:hover{
+    border: 1px solid white;
+    background-color: sienna;
+    padding: 10px;
+    border-radius: 10px;
+}
 ul{
     list-style: none;
 }

@@ -12,13 +12,13 @@
             <div>
                 <h1 class="text-center">Ready to rock and roll?</h1>
                 <h1 class="text-center margin-top-sm">Rock Paper sicssors!</h1>
-                <p class="text-center margin-top-sm">First to score 5points wins.</p>
+                <p class="text-center">First to score 5points wins.</p>
             </div>
             <div class="sub-container">
                 <ul class="row justify-evenly margin-top-sm">
-                    <li><img class="image-responsive" src="images/hand-rock-grey.svg" alt="rock"></li>
-                    <li><img class="image-responsive" src="images/hand-paper-grey.svg" alt="paper"></li>
-                    <li><img class="image-responsive" src="images/hand-scissors-grey.svg" alt="sicssors"></li>
+                    <li><img id="rock" class="image-responsive" src="images/hand-rock-grey.svg" alt="rock"></li>
+                    <li><img id="paper" class="image-responsive" src="images/hand-paper-grey.svg" alt="paper"></li>
+                    <li><img id="scissors" class="image-responsive" src="images/hand-scissors-grey.svg" alt="sicssors"></li>
                 </ul>
                 <ul class="row justify-evenly margin-top-sm">
                     <li>
@@ -37,4 +37,47 @@
             </div>
         </main>
     </body>
+    <script>
+
+        //Users should pick their choice
+        const usersChoice = ()=>{
+            let e = 0
+            const imageResponsive = document.getElementsByClassName("image-responsive")
+            const image = Array.from(imageResponsive)
+            console.log(image[0])
+            for (let i = 0; i < image.length; i++) {
+                image[i].addEventListener('click', (event)=>{
+                    event.preventDefault();
+                    console.log(image[i]);
+                    const c = computersChoice(e)
+                    e = c
+                }, false)
+                
+            }
+        }
+
+
+
+        let gameArray = ['rock', 'paper', 'scissors'];
+        //write a function that allows computer pick between rock paper scissors
+        const computersChoice = (choiceLength)=>{
+            let choice;
+                if (gameArray.length < choiceLength + 1) {
+                    choice= 0
+                     console.log(gameArray[0]);
+                }else{
+                    console.log(choiceLength)
+                     console.log(gameArray[choiceLength]);
+                     choice = choiceLength + 1
+                }
+    
+                return choice
+        }
+        
+        //write a timer that counts from 3 to 1 and invoke the function that allows computer picks.
+        window.addEventListener('load', (event)=>{
+            usersChoice()
+
+        }, false)
+    </script>
 </html>
